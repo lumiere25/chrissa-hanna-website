@@ -1,0 +1,180 @@
+@import 'config';
+@import 'menu';
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  @include background;
+  background: $primary-color;
+  color: #fff;
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+// Headings
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 400;
+
+  &.lg-heading {
+    font-size: 6rem; 
+  }
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: rgba(lighten($primary-color, 2), 0.5);
+  }
+}
+
+// Links
+
+a {
+ color: $secondary-color;
+ text-decoration: none;
+}
+
+//Header
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%; 
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+
+main {
+  padding: 4rem;
+  // height: 100%;
+  // To get a sticky footer we calculate the height of the viewport minus the height of the footer.
+  min-height: calc(100vh - 60px);
+
+  .icons {
+    margin-top: 1rem;
+
+    a {
+      padding: 0.4rem;
+
+      &:hover {
+        color:$secondary-color;
+        @include easeOut();
+        
+      }
+    }
+  }
+
+ &#home {
+   overflow: hidden;
+   h1 {
+     margin-top: 20vh;
+   }
+ }
+}
+
+.about-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas:
+  'bioimage bio bio'
+  'job1 job2 job3';
+  grid-auto-columns: repeat(3, 1fr);
+
+
+  
+  .portrait {
+    width: 250px;
+    height: 250px;
+    background: url(../img/chrissa.jpg);
+    background-size: cover;
+    border-radius: 50%;
+    border: solid 5px $secondary-color;
+    margin: auto;
+    
+  }
+
+
+  
+  .bio {
+    grid-area: bio;
+    font-size: 1.5rem;
+  }
+  
+  .job-1 {
+    grid-area: job1;
+  }
+  
+  .job-2 {
+    grid-area: job2;
+  }
+  
+  .job-3 {
+    grid-area: job3;
+  }
+  
+  .job {
+    background: lighten($primary-color, 4);
+    padding: 0.5rem;
+    border-bottom: $secondary-color 5px solid;
+  }
+}
+
+
+// Work/projects
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+
+  img {
+   width: 100%;
+   border:3px solid $secondary-color;
+
+   &:hover {
+     opacity: 0.5;
+     @include easeOut;
+   }
+  }
+}
+
+ .boxes {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+   align-items: center;
+   margin-top: 1rem;
+
+   div {
+     font-size: 2rem;
+     border: 3px solid $secondary-color;
+     padding: 1.5rem 2.5rem;
+     margin-bottom: 3rem;
+     @include easeOut;
+
+     &:hover {
+       padding: 0.5rem 1.5rem;
+       background: darken( $primary-color, 8 );
+      }
+    }
+ }
+
+
+ // Button Styles/ skip this section
+ 
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background: darken($primary-color, 10);
+  color:#fff;
+  height: 60px;
+}
+
+@import 'mobile';
